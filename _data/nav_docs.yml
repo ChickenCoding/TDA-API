@@ -1,0 +1,29 @@
+- title: Homepage
+  items:
+  - id: about-the-developer-adventure
+    title: About The Developer Adventure
+- title: User Guide
+  items:
+  - id: getting-started
+    title: Getting Started
+    subitems:
+      - id: requirments
+        title: Requirments
+  - id: first-steps-with-server
+    title: First Steps With Server
+    subitems:
+      - id: server-handshake
+        title: Open a connection to server
+      - id: server-request
+        title: Server Request
+      - id: server-response
+        title: Server Response
+  - id: account
+    title: Make an account
+    subitems:
+    - id: account-create
+      title: Create an account
+    - id: account-login
+      title: Login
+    - id: account-availability
+      title: Username availability

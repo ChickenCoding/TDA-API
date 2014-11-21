@@ -1,0 +1,13 @@
+/usr/bin/ruby extconf.rb 
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling porter_wrap.c
+compiling porter.c
+linking shared-object stemmer.so
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 stemmer.so ./.gem.20141120-20869-1ffdoye
+installing default stemmer libraries

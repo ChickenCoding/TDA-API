@@ -1,0 +1,18 @@
+{% include header.html %}
+<div class="container">
+	<div class="toc">
+		{% include docs_toc.html %}
+	</div>
+	<div class="container__content--docs">
+		{{content}}
+		<div class="docs-prevnext">
+			{% if page.prev %}
+			<a href="/docs/{{ page.prev }}#_">&larr; Prev</a>
+			{% endif %}
+			{% if page.next %}
+			<a class="right" href="/docs/{{ page.next }}#_">Next &rarr;</a>
+			{% endif %}
+		</div>
+	</div>
+</div>
+{% include footer.html %}
