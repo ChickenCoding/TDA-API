@@ -24,5 +24,5 @@ compiling yajl_alloc.c
 linking shared-object yajl/yajl.so
 
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 yajl.so ./.gem.20141120-20869-lvyjju/yajl
+/usr/bin/install -c -m 0755 yajl.so ./.gem.20141121-32527-1f0bhy3/yajl
 installing default yajl libraries

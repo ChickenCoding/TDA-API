@@ -9,5 +9,5 @@ compiling porter.c
 linking shared-object stemmer.so
 
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 stemmer.so ./.gem.20141120-20869-1ffdoye
+/usr/bin/install -c -m 0755 stemmer.so ./.gem.20141121-32527-18u30se
 installing default stemmer libraries

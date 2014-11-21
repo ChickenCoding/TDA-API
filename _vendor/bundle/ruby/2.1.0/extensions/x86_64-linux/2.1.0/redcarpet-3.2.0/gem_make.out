@@ -31,5 +31,5 @@ compiling buffer.c
 linking shared-object redcarpet.so
 
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 redcarpet.so ./.gem.20141120-20869-12vuhaq
+/usr/bin/install -c -m 0755 redcarpet.so ./.gem.20141121-32527-1niicm6
 installing default redcarpet libraries

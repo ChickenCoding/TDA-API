@@ -14,5 +14,5 @@ compiling hitimes_interval.c
 linking shared-object hitimes/2.1/hitimes.so
 
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 hitimes.so ./.gem.20141120-20869-1popr3w/hitimes/2.1
+/usr/bin/install -c -m 0755 hitimes.so ./.gem.20141121-32527-1tpz9dq/hitimes/2.1
 installing default hitimes libraries
