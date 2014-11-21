@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title></title>
+		<link rel="stylesheet" href="/static/fontello.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="/static/pygments.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="/static/main.css" type="text/css" media="all" />
+		<link href="http://fonts.googleapis.com/css?family=Oswald:700|Droid+Serif:400,700italic" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<header>
+			<a href="/" class="header__banner">
+				<img src="/static/tda-logo.png" alt="The Developer Adventure"/>
+			</a>
+			<nav role="nav">
+				<ul>
+					<li>
+						<a href="/docs/getting-started.html#_">docs</a>
+					</li>
+					<li>
+						<a href="/docs/about-the-developer-adventure.html#_">about</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+<div class="container">
+	<div class="toc">
+		<nav class='toc__list'>
+
+<section>
+	<h3>Homepage</h3>
+	<ul>
+		
+		<li>
+			<a href="/docs/about-the-developer-adventure.html#_">
+				About The Developer Adventure
+			</a>
+			
+		</li>
+		
+	</ul>
+</section>
+
+<section>
+	<h3>User Guide</h3>
+	<ul>
+		
+		<li>
+			<a href="/docs/getting-started.html#_">
+				Getting Started
+			</a>
+			
+			<ul>
+				
+				<li>
+					<a href="/docs/getting-started.html/#requirments">
+						Requirments
+					</a>
+				</li>
+				
+			</ul>
+			
+		</li>
+		
+		<li>
+			<a href="/docs/first-steps-with-server.html#_">
+				First Steps With Server
+			</a>
+			
+			<ul>
+				
+				<li>
+					<a href="/docs/first-steps-with-server.html/#server-handshake">
+						Open a connection to server
+					</a>
+				</li>
+				
+				<li>
+					<a href="/docs/first-steps-with-server.html/#server-request">
+						Server Request
+					</a>
+				</li>
+				
+				<li>
+					<a href="/docs/first-steps-with-server.html/#server-response">
+						Server Response
+					</a>
+				</li>
+				
+			</ul>
+			
+		</li>
+		
+		<li>
+			<a href="/docs/account.html#_" class="toc__item--active">
+				Make an account
+			</a>
+			
+			<ul>
+				
+				<li>
+					<a href="/docs/account.html/#account-create">
+						Create an account
+					</a>
+				</li>
+				
+				<li>
+					<a href="/docs/account.html/#account-login">
+						Login
+					</a>
+				</li>
+				
+				<li>
+					<a href="/docs/account.html/#account-availability">
+						Username availability
+					</a>
+				</li>
+				
+			</ul>
+			
+		</li>
+		
+	</ul>
+</section>
+
+</nav>
+
+	</div>
+	<div class="container__content--docs">
+		<h1><a href="#account"><i class=icon-anchor></i></a><a name="account">Account</a></h1>
+
+<h2><a href="#account-create"><i class=icon-anchor></i></a><a name="account-create">Create an account</a></h2>
+
+<p>Following the <a href="#server-request">Server Request</a> format, the data needed to create an account are :</p>
+
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-json" data-lang="json">1
+2
+3
+4
+5
+6
+7</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;CreateAccount&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;your_username&gt;&quot;</span> <span class="p">,</span>
+        <span class="nt">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;your_password&gt;&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<blockquote>
+<p>The server provide a separate method to check if the username is took or not. See <a href="#account-username-availability">Username availability</a>.</p>
+</blockquote>
+
+<h2><a href="#account-login"><i class=icon-anchor></i></a><a name="account-login">Login</a></h2>
+
+<p>To login, provide the following format of data :</p>
+
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-json" data-lang="json">1
+2
+3
+4
+5
+6
+7</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Login&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;your_username&gt;&quot;</span> <span class="p">,</span>
+        <span class="nt">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;your_password&gt;&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<h2><a href="#account-availability"><i class=icon-anchor></i></a> <a name="account-availability">Username availability</a></h2>
+
+<p>To check if a username is took or not, you need to request the server the following data :</p>
+
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-json" data-lang="json">1
+2
+3
+4
+5
+6</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;UsernameAvailibility&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;your_username&gt;&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+		<div class="docs-prevnext">
+			
+			<a href="/docs/first-steps-with-server.html#_">&larr; Prev</a>
+			
+			
+		</div>
+	</div>
+</div>
+</body>
+</html>
+

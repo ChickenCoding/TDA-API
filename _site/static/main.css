@@ -1,0 +1,237 @@
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+a{
+	color: #2388b9;
+}
+a[name] {
+	color: #1a1a1a;
+}
+h1 {
+	font-family: 'Oswald', sans-serif;
+	font-weight: 700;
+	line-height: 51px;
+	font-size: 46px;
+	text-transform: uppercase;
+	margin: 0 0 23px 0;
+	padding-left: 2rem;
+}
+h2 {
+	font-family: 'Droid Serif', serif;
+	font-weight: 400;
+	font-style: italic;
+	font-size: 20px;
+	line-height: 23px;
+	margin: 10px 0 23px 0;
+	padding-left: 2rem;
+}
+h3 {
+	font-family: 'Droid Serif', serif;
+	font-weight: 400;
+	font-style: italic;
+	font-size: 16px;
+	line-height: 18px;
+	margin: 0 0 23px 0;
+	padding-left: 2rem;
+}
+p {
+	font-family: 'Droid Serif', serif;
+	font-size: 15px;
+	line-height: 23px;
+	margin: 0 0 23px 0;
+}
+
+
+header {
+	width: 100%;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+}
+
+a.header__banner {
+	flex-basis: 50%;
+	display: flex;
+	justify-content: center;
+}
+
+nav {
+	flex-basis: 50%;
+}
+
+nav ul{
+	display: flex;
+	flex-flow: row wrap;
+}
+nav ul li {
+	flex-basis: 10%;
+	list-style-type: none;
+}
+
+.container {
+	display: flex;
+	/*justify-content: flex-start;*/
+}
+
+nav.toc__list {
+	flex-basis: 20%;
+	position: fixed;
+	width: 20%;
+}
+nav.toc__list section li {
+	line-height: 2rem;
+}
+nav.toc__list ul {
+	display: block;
+}
+.toc__item--active:before,
+.toc__item--active::before {
+	content: "\e800";
+	font-family: 'fontello';
+	text-decoration: none;
+	color: #efefef;
+	background: #2388b9;
+	padding: 0.1rem;
+}
+
+.container__content {
+	width: 50%;
+	margin: 0 auto;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	font-family: 'Lucida Console', 'Terminal', 'sans-serif';
+}
+
+.container__content--docs {
+	flex-basis: 50%;
+	margin-left: 30%;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	font-family: 'Lucida Console', 'Terminal', 'sans-serif';
+}
+
+blockquote {
+	border-left: 0.5rem solid lightblue;
+	background: #eee;
+	margin-left: 0;
+	padding-left: 1rem;
+	border-top-left-radius: 0.3rem;
+	border-bottom-left-radius: 0.3rem;
+}
+blockquote:before,
+blockquote::before {
+	font-family: 'fontello';
+	color: #f7803c;
+	content: '\e803';
+	position:absolute;
+	margin-left: -3rem;
+	padding: 0.5rem;
+	background: lightblue;
+	border-top-left-radius: 50%;
+	border-bottom-left-radius: 50%;
+}
+
+
+code {
+	letter-spacing: 0.02em;
+	padding-right: 2px;
+	padding-left: 4px;
+	border-radius: 3px;
+	color: #565656;
+	font-weight: 500;
+	font-family: 'Lucida Console', 'Terminal', 'sans-serif';
+}
+.highlight pre {
+	font-size: 13px;
+	line-height: 20px;
+	padding: 0 0 20px 20px;
+}
+
+.highlighttable .highlight pre {
+	padding: 0;
+}
+.highlighttable code {
+	padding-right: 10px;
+	margin: 0;
+	padding-left: 2px;
+	font-size: 12px;
+	display: block;
+	line-height: 20px;
+	white-space: pre;
+	color: hsl(39, 100%, 42%);
+}
+.highlight pre code, .highlighttable {
+	display: block;
+	padding: 0;
+	font-size: 13px;
+	border-left: 0.5rem solid rgb(214, 139, 0);
+	padding: 5px 10px;
+	box-sizing: border-box;
+	border-top-left-radius: 0.3rem;
+	border-bottom-left-radius: 0.3rem;
+	background-color: rgba(226, 141, 49, 0.1);
+}
+.highlighttable:before,
+.highlighttable::before {
+	font-family: 'fontello';
+	color: #efefef;
+	content: '\e802';
+	position:absolute;
+	margin-left: -2.9rem;
+	padding: 0.5rem;
+	background: rgb(214, 139, 0);
+	border-top-left-radius: 50%;
+	border-bottom-left-radius: 50%;
+}
+
+.highlight pre code {
+	width: 100%;
+	white-space: pre;
+}
+.lineno {
+	color: rgb(214, 139, 0);
+}
+.lineno::after {
+	content: ';';
+	font-size: 0;
+}
+.highlight pre code.language-verilog {
+border-left: 0.5rem solid hsl(19, 0%, 42%);
+background-color: hsla(8, 0%, 54%, 0.1);
+color: #1a1a1a;
+}
+
+.icon-anchor {
+	display: block;
+	float: left;
+	color: #999;
+	margin-left: -3.5rem;
+	border-bottom: 1px solid transparent ;
+	font-size: 1.5rem;
+}
+
+.icon-anchor:hover {
+	color: #aaa4bc;
+	border-bottom: 1px dotted #aaa4bc;
+}
+.docs-prevnext {
+	margin-top: 1rem;
+	width: 100%;
+	text-align: center;
+	background: #ddd;
+	height: 4rem;
+	padding-top: 1rem;
+	
+}
+.docs-prevnext a {
+	color: #111;
+	padding: 0 0.5rem;

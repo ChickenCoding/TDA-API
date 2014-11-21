@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title></title>
+		<link rel="stylesheet" href="/static/fontello.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="/static/pygments.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="/static/main.css" type="text/css" media="all" />
+		<link href="http://fonts.googleapis.com/css?family=Oswald:700|Droid+Serif:400,700italic" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<header>
+			<a href="/" class="header__banner">
+				<img src="/static/tda-logo.png" alt="The Developer Adventure"/>
+			</a>
+			<nav role="nav">
+				<ul>
+					<li>
+						<a href="/docs/getting-started.html#_">docs</a>
+					</li>
+					<li>
+						<a href="/docs/about-the-developer-adventure.html#_">about</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+<div class="container">
+	<div class="toc">
+		<nav class='toc__list'>
+
+<section>
+	<h3>Homepage</h3>
+	<ul>
+		
+		<li>
+			<a href="/docs/about-the-developer-adventure.html#_">
+				About The Developer Adventure
+			</a>
+			
+		</li>
+		
+	</ul>
+</section>
+
+<section>
+	<h3>User Guide</h3>
+	<ul>
+		
+		<li>
+			<a href="/docs/getting-started.html#_">
+				Getting Started
+			</a>
+			
+			<ul>
+				
+				<li>
+					<a href="/docs/getting-started.html/#requirments">
+						Requirments
+					</a>
+				</li>
+				
+			</ul>
+			
+		</li>
+		
+		<li>
+			<a href="/docs/first-steps-with-server.html#_" class="toc__item--active">
+				First Steps With Server
+			</a>
+			
+			<ul>
+				
+				<li>
+					<a href="/docs/first-steps-with-server.html/#server-handshake">
+						Open a connection to server
+					</a>
+				</li>
+				
+				<li>
+					<a href="/docs/first-steps-with-server.html/#server-request">
+						Server Request
+					</a>
+				</li>
+				
+				<li>
+					<a href="/docs/first-steps-with-server.html/#server-response">
+						Server Response
+					</a>
+				</li>
+				
+			</ul>
+			
+		</li>
+		
+		<li>
+			<a href="/docs/account.html#_">
+				Make an account
+			</a>
+			
+			<ul>
+				
+				<li>
+					<a href="/docs/account.html/#account-create">
+						Create an account
+					</a>
+				</li>
+				
+				<li>
+					<a href="/docs/account.html/#account-login">
+						Login
+					</a>
+				</li>
+				
+				<li>
+					<a href="/docs/account.html/#account-availability">
+						Username availability
+					</a>
+				</li>
+				
+			</ul>
+			
+		</li>
+		
+	</ul>
+</section>
+
+</nav>
+
+	</div>
+	<div class="container__content--docs">
+		<h1><a href="#server"><i class=icon-anchor></i></a><a name=”server”>First steps with server</a></h1>
+
+<h2><a href="#server-handshake"><i class=icon-anchor></i></a><a name="server-handshake">Open a connection to the server</a></h2>
+
+<p>First, you will have to connect to the server.
+The server uses websockets, and is located at <code>ws://thedeveloperadventure.newnorth.technology:32900</code>.</p>
+
+<h2><a href="#server-request"><i class=icon-anchor></i></a><a name="server-request">Server Request</a></h2>
+
+<p>To do a request to the server, the format is: </p>
+
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-json" data-lang="json">1
+2
+3
+4
+5
+6</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;request_type&gt;&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+       <span class="nt">&quot;&lt;data&gt;&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<blockquote>
+<p>You need to parse the message as a <strong>string</strong>, do not send the JSON directly.</p>
+</blockquote>
+
+<h2><a href="#server-response"><i class=icon-anchor></i></a><a name="server-response">Server Response</a></h2>
+
+<p>The server will then respond with the following format : </p>
+
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-json" data-lang="json">1
+2
+3
+4
+5
+6
+7
+8
+9</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;request_type&quot;</span><span class="err">&gt;</span><span class="p">,</span>
+    <span class="nt">&quot;client&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;ID&gt;&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;true || false&gt;&quot;</span> 
+        <span class="s2">&quot;errorCode&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;String&gt;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;isAvailable&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;true || false&gt;&quot;</span> 
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li><p><code>name</code> response will be the same as your <code>name</code> request</p></li>
+<li><p><code>client</code> is the server ID if sent from server, client ID if sent from client</p></li>
+<li><p><code>data.error</code> is <code>true</code> if an error is found, <code>false</code> if not,</p></li>
+<li><p><code>data.errorCode</code> is formated as <code>0x00</code></p></li>
+<li><p><code>data.isAvailable</code> is <code>true</code> if the username is not yet taken, <code>false</code> either. </p></li>
+</ul>
+
+<blockquote>
+<p><code>data</code> will also contains the data requested to the server.</p>
+</blockquote>
+
+		<div class="docs-prevnext">
+			
+			<a href="/docs/getting-started.html#_">&larr; Prev</a>
+			
+			
+			<a class="right" href="/docs/account.html#_">Next &rarr;</a>
+			
+		</div>
+	</div>
+</div>
+</body>
+</html>
+
