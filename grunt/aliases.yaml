@@ -1,0 +1,8 @@
+###*
+# Deploy to jekyll
+#
+# @registeredTask default
+###
+default:
+  - "newer:zip"
+  - "newer:copy"

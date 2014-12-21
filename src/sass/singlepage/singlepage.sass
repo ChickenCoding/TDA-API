@@ -1,0 +1,126 @@
+//  Singlepage Specific
+//
+//  Singlepage Style Specific.
+//
+//  Compatibility untested.
+//
+// Styleguide 8
+
+// Shared Styles
+//
+//  Style base, shared between all distributons
+//
+//  Compatibility untested.
+//
+// Styleguide not defined.
+@import "../_shared/main.sass"
+@import "../_shared/fontello.css"
+
+
+// @source - [@Stephn-R](https://github.com/sass/sass/issues/1395#issuecomment-57483844)
+// @description converts 1 or more characters into a unicode 
+// @markup {scss}
+// unicode("e655"); // "\e655"
+@function unicode($str)
+  @return unquote("\"")+unquote(str-insert($str, "\\", 1))+unquote("\"")
+
+// Navigation
+//
+//  Navigation Grid System.
+//
+//  Markup:
+//  <nav>Text Navigation</nav>
+//  <nav><ul>Text List Navigation</ul></nav>
+//  <nav><ul><li>Text Item List Navigation</li></ul></nav>
+//
+//  Compatibility untested.
+//
+// Styleguide 5.0.2
+nav
+  flex-basis: 50%
+  ul
+    display: flex
+    flex-flow: row wrap
+    li
+      flex-basis: 10%
+nav.toc__list
+  flex-basis: 20%
+  position: fixed
+  width: 20%
+  ul
+    display: block
+
+
+// TEMP
+.container__content:before,
+.container__content::before
+  content: ""
+  margin-top: 20rem
+
+.highlight:before,
+.highlight::before
+  font-family: 'fontello'
+  color: #efefef
+  content: unicode('e802')
+  position: absolute
+  margin-left: -2.9rem
+  padding: 0.5rem
+  background: rgb(214, 139, 0)
+  border-top-left-radius: 50%
+  border-bottom-left-radius: 50%
+
+.highlight pre
+  font-size: 13px
+  line-height: 20px
+  padding: 0 0 20px 20px
+
+.highlight code
+  padding-right: 10px
+  margin: 0
+  padding-left: 2px
+  font-size: 12px
+  display: block
+  line-height: 20px
+  white-space: pre
+  color: hsl(39, 100%, 42%)
+
+.highlight
+  display: block
+  padding: 0
+  font-size: 13px
+  border-left: 0.5rem solid rgb(214, 139, 0)
+  padding: 5px 10px
+  box-sizing: border-box
+  border-top-left-radius: 0.3rem
+  border-bottom-left-radius: 0.3rem
+  background-color: rgba(226, 141, 49, 0.1)
+
+.highlight:before,
+.highlight::before
+  font-family: 'fontello'
+  color: #efefef
+  content: unicode('e802')
+  position: absolute
+  margin-left: -2.9rem
+  padding: 0.5rem
+  background: rgb(214, 139, 0)
+  border-top-left-radius: 50%
+  border-bottom-left-radius: 50%
+
+
+.highlight pre code
+  width: 100%
+  white-space: pre
+
+.lineno 
+  color: rgb(214, 139, 0)
+
+.lineno::after
+  content: ';'
+  font-size: 0
+
+.highlight pre code.language-verilog 
+  border-left: 0.5rem solid hsl(19, 0%, 42%)
+  background-color: hsla(8, 0%, 54%, 0.1)
+  color: #1a1a1a
+

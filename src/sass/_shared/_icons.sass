@@ -1,0 +1,91 @@
+// Icons fontello
+//
+// Compatibility untested.
+//
+// No Styleguide reference.
+@import "./fontello.css"
+
+// @source - [@Stephn-R](https://github.com/sass/sass/issues/1395#issuecomment-57483844)
+// @description converts 1 or more characters into a unicode 
+// @markup {scss}
+// unicode("e655"); // "\e655"
+@function unicode($str)
+  @return unquote("\"")+unquote(str-insert($str, "\\", 1))+unquote("\"")
+
+//  Icon Anchor
+//
+//  Extends the anchor icon.
+//
+//  Markup:
+//  <a href="#" class="icon-anchor {$modifiers}">Text Icon</a>
+//
+//  :hover - Highlight when the class is been hovered
+//
+//  Compatibility untested.
+//
+// Styleguide 2.0.1
+.icon-anchor
+  display: block
+  float: left
+  color: #999
+  margin-left: -3.5rem
+  border-bottom: 1px solid transparent
+  font-size: 1.5rem
+  &:hover
+    color: #aaa4bc
+    border-bottom: 1px dotted #aaa4bc
+  &:before
+    content: unicode('e801')
+    font-family: 'fontello'
+
+//  Table Of Content Link Icon
+//
+//  Icon of the toc item link.
+//
+//  Markup:
+//  <a href="#" class="toc__item--active">Text Toc Item Link</a>
+//
+//  Compatibility untested.
+//
+// Styleguide 2.0.2
+.toc__item--active:before,
+.toc__item--active::before
+  content: unicode('e800')
+  font-family: 'fontello'
+
+//  Code Icon
+//
+//  Icon for code tag.
+//
+//  Markup:
+//  <blockquote>Text Blockquote</blockquote>
+//  <div class="highlightable">Text Highlightable</div>
+//
+//  Compatibility untested.
+//
+// Styleguide 2.0.3
+blockquote:before,
+blockquote::before
+  font-family: 'fontello'
+  content: unicode('e803')
+  position: absolute
+
+// Link Icon
+//
+// Icon for TOC tag
+//
+//  Markup:
+//  <a class="toc__item--active">Text Link TOC</a>
+//
+//  Compatibility untested
+//
+// Styleguide 2.0.4
+.toc__item--active:before,
+.toc__item--active::before
+  content: unicode('e800')
+  font-family: 'fontello'
+  text-decoration: none
+  color: #efefef
+  background: #2388b9
+  padding: 0.1rem
+

@@ -1,0 +1,77 @@
+- title: User Guide
+  items:
+  - id: getting-started
+    title: Getting Started
+    subitems:
+      - id: requirments
+        title: Requirments
+  - id: first-steps-with-server
+    title: First Steps With Server
+    subitems:
+      - id: server-handshake
+        title: Open a connection to server
+      - id: server-request
+        title: Server Request
+      - id: server-response
+        title: Server Response
+  - id: account
+    title: Make an account
+    subitems:
+    - id: account-create
+      title: Create an account
+    - id: account-login
+      title: Login
+    - id: account-availability
+      title: Username availability
+  - id: chat-and-interactions
+    title: Chat And Interactions
+    subitems:
+      - id: chat-interactions-say
+        title: Say
+      - id: chat-interactions-whisper
+        title: Whisper
+      - id: chat-interactions-yell
+        title: Yell
+      - id: chat-interactions-slap
+        title: Slap
+      - id: chat-interactions-tell
+        title: Tell
+      - id: chat-interactions-ask
+        title: Ask
+      - id: chat-interactions-answer
+        title: Answer
+      - id: chat-interactions-smile
+        title: Smile
+      - id: chat-interactions-dance
+        title: Dance
+  - id: player
+    title: Player
+    subitems:
+      - id: player-movements
+        title: Player movements
+      - id: player-action
+        title: Player action
+  - id: levelling
+    title: Levelling
+    subitems:
+      - id: levelling-attributes
+        title: Attributes
+      - id: levelling-phobias
+        title: Phobias
+  - id: inventory
+    title: Inventory
+    subitems:
+      - id: inventory-action
+        title: Inventory Action
+  - id : quest
+    title: Quest
+    subitems:
+      - id: quest-board
+        title: Quest Board
+      - id: quest-journal
+        title: Quest journal
+  - id: items
+    title: Items
+    subitems:
+      - id: status
+        title: Status

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+				<title>Single Page API - The Developer Adventure</title>
+				<link rel="stylesheet" href="./static/css/fontello.css" type="text/css" media="all" />
+				<link rel="stylesheet" href="./static/css/pygments.css" type="text/css" media="all" />
+				<link rel="stylesheet" href="./static/css/main.css" type="text/css" media="all" />
+			</head>
+<body>
+<header>
+<a href="#" class="header__banner">
+<img src="/static/tda-logo.png" alt="The Developer Adventure"/>
+</a>
+</header>
+			
+<div class="toc">
+<nav class="toc__list">
+
+<section>
+
+<h3>
+User Guide
+</h3>
+
+<ul>
+
+<li>
+<a href="#getting-started">Getting Started</a>
+</li>
+
+<ul>
+
+<li>
+<a href="#requirments">Requirments</a>
+</li>
+
+</ul> 
+
+<li>
+<a href="#first-steps-with-server">First Steps With Server</a>
+</li>
+
+<ul>
+
+<li>
+<a href="#server-handshake">Open a connection to server</a>
+</li>
+
+<li>
+<a href="#server-request">Server Request</a>
+</li>
+
+<li>
+<a href="#server-response">Server Response</a>
+</li>
+
+</ul> 
+
+<li>
+<a href="#account">Make an account</a>
+</li>
+
+<ul>
+
+<li>
+<a href="#account-create">Create an account</a>
+</li>
+
+<li>
+<a href="#account-login">Login</a>
+</li>
+
+<li>
+<a href="#account-availability">Username availability</a>
+</li>
+
+</ul> 
+
+<li>
+<a href="#chat-and-interactions">Chat And Interactions</a>
+</li>
+
+<ul>
+
+<li>
+<a href="#say">Say</a>
+</li>
+
+<li>
+<a href="#whisper">Whisper</a>
+</li>
+
+<li>
+<a href="#yell">Yell</a>
+</li>
+
+<li>
+<a href="#slap">Slap</a>
+</li>
+
+<li>
+<a href="#tell">Tell</a>
+</li>
+
+<li>
+<a href="#ask">Ask</a>
+</li>
+
+<li>
+<a href="#answer">Answer</a>
+</li>
+
+<li>
+<a href="#smile">Smile</a>
+</li>
+
+<li>
+<a href="#dance">Dance</a>
+</li>
+
+</ul> 
+
+<li>
+<a href="#player">Player</a>
+</li>
+
+<ul>
+
+<li>
+<a href="#player-movements">Player movements</a>
+</li>
+
+<li>
+<a href="#player-action">Player action</a>
+</li>
+
+</ul> 
+
+<li>
+<a href="#levelling">Levelling</a>
+</li>
+
+<ul>
+
+<li>
+<a href="#levelling-attributes">Attributes</a>
+</li>
+
+<li>
+<a href="#levelling-phobias">Phobias</a>
+</li>
+
+</ul> 
+
+<li>
+<a href="#inventory">Inventory</a>
+</li>
+
+<ul>
+
+<li>
+<a href="#inventory-action">Inventory Action</a>
+</li>
+
+</ul> 
+
+<li>
+<a href="#quest">Quest</a>
+</li>
+
+<ul>
+
+<li>
+<a href="#quest-board">Quest Board</a>
+</li>
+
+<li>
+<a href="#quest-journal">Quest journal</a>
+</li>
+
+</ul> 
+
+<li>
+<a href="#items">Items</a>
+</li>
+
+<ul>
+
+<li>
+<a href="#status">Status</a>
+</li>
+
+</ul> 
+
+</ul> 
+
+</section>
+
+</nav>
+</div>
+<div class="container">
+<div class="container__content">
+<div class="container__content--docs">
+<h1><a href="#getting-started"><i class=icon-anchor></i></a><a name=getting-sarted>Getting started</a></h1>
+
+<h2><a href="#requirments"><i class=icon-anchor></i></a><a name=requirments>Requirements</a></h2>
+
+<h1><a href="#first-steps-with-server"><i class=icon-anchor></i></a><a name=first-steps-with-server>First steps with server</a></h1>
+
+<h2><a href="#server-handshake"><i class=icon-anchor></i></a><a name=server-handshake>Open a connection to the server</a></h2>
+
+<p>First, you will have to connect to the server.
+The server uses websockets, and is located at <code>ws://thedeveloperadventure.newnorth.technology:32900</code>.</p>
+
+<h2><a href="#server-request"><i class=icon-anchor></i></a><a name=server-request>Server Request</a></h2>
+
+<p>To do a request to the server, the format is: </p>
+
+<p><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"[request_type]"</span><span class="p">,</span>
+    <span class="nt">"data"</span><span class="p">:</span> <span class="p">{</span>
+         <span class="nt">"[data]"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</p>
+
+<blockquote>
+<p>You need to parse the message as a <strong>string</strong>, do not send the JSON directly.</p>
+</blockquote>
+
+<h2><a href="#server-response"><i class=icon-anchor></i></a><a name=server-response>Server Response</a></h2>
+
+<p>The server will then respond with the following format : </p>
+
+<p><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"[request_type]"</span><span class="p">,</span>
+        <span class="nt">"client"</span><span class="p">:</span> <span class="s2">"[ID]"</span><span class="p">,</span>
+        <span class="nt">"data"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">"error"</span><span class="p">:</span> <span class="s2">"[true || false]"</span><span class="p">,</span>
+                <span class="nt">"errorCode"</span><span class="p">:</span> <span class="s2">"[String]"</span><span class="p">,</span>
+            <span class="nt">"isAvailable"</span><span class="p">:</span> <span class="s2">"[true || false]"</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</p>
+
+<ul>
+<li><p><code>name</code> response will be the same as your <code>name</code> request</p></li>
+<li><p><code>client</code> is the server ID if sent from server, client ID if sent from client</p></li>
+<li><p><code>data.error</code> is <code>true</code> if an error is found, <code>false</code> if not,</p>
+
+<ul>
+<li><code>data.errorCode</code> is formated as <code>0x00</code></li>
+<li><code>data.isAvailable</code> is <code>true</code> if the username is not yet taken, <code>false</code> either.
+<code>data</code> will also contains the data requested to the server.</li>
+</ul></li>
+</ul>
+
+<h1><a href="#account"><i class=icon-anchor></i></a><a name="account">Account</a></h1>
+
+<h2><a href="#account-create"><i class=icon-anchor></i></a><a name="account-create">Create an account</a></h2>
+
+<p>Following the <a href="#server-request">Server Request</a> format, the data needed to create an account are :</p>
+
+<p><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"CreateAccount"</span><span class="p">,</span>
+    <span class="nt">"data"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">"username"</span><span class="p">:</span> <span class="s2">"[your<em>username]"</span> <span class="p">,</span>
+        <span class="nt">"password"</span><span class="p">:</span> <span class="s2">"[your</em>password]"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</p>
+
+<blockquote>
+<p>The server provide a separate method to check if the username is took or not. See <a href="#account-username-availability">Username availability</a>.</p>
+</blockquote>
+
+<h2><a href="#account-login"><i class=icon-anchor></i></a><a name="account-login">Login</a></h2>
+
+<p>To login, provide the following format of data :</p>
+
+<p><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Login"</span><span class="p">,</span>
+    <span class="nt">"data"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">"username"</span><span class="p">:</span> <span class="s2">"[your<em>username]"</span> <span class="p">,</span>
+        <span class="nt">"password"</span><span class="p">:</span> <span class="s2">"[your</em>password]"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</p>
+
+<h2><a href="#account-availability"><i class=icon-anchor></i></a> <a name="account-availability">Username availability</a></h2>
+
+<p>To check if a username is took or not, you need to request the server the following data :</p>
+
+<p><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"UsernameAvailibility"</span><span class="p">,</span>
+    <span class="nt">"data"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">"username"</span><span class="p">:</span> <span class="s2">"[your_username]"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</p>
+
+<h1><a href="#chat-interactions"><i class=icon-anchor></i></a><a name=chat-and-interactions>Chat and interactions</a></h1>
+
+<h2><a href="#chat-interactions-say"><i class=icon-anchor></i></a><a name=chat-interactions-say>Say</a></h2>
+
+<h2><a href="#chat-interactions-whisper"><i class=icon-anchor></i></a><a name=chat-interactions-whisper>Whisper</a></h2>
+
+<h2><a href="#chat-interactions-yell"><i class=icon-anchor></i></a><a name=chat-interactions-yell>Yell</a></h2>
+
+<h2><a href="#chat-interactions-slap"><i class=icon-anchor></i></a><a name=chat-interactions-slap>Slap</a></h2>
+
+<h2><a href="#chat-interactions-tell"><i class=icon-anchor></i></a><a name=chat-interactions-tell>Tell</a></h2>
+
+<h2><a href="#chat-interactions-smile"><i class=icon-anchor></i></a><a name=chat-interactions-smile>Smile</a></h2>
+
+<h2><a href="#chat-interactions-dance"><i class=icon-anchor></i></a><a name=chat-interactions-dance>Dance</a></h2>
+
+<h1><a href="#player"><i class=icon-anchor></i></a><a name=player>Player</a></h1>
+
+<h2><a href="#player-movements"><i class=icon-anchor></i></a><a name=player-movements>Player Movements</a></h2>
+
+<h3><a href="#player-movements-walk"><i class=icon-anchor></i></a><a name=player-movements-walk>Walking</a></h3>
+
+<p>Make the character walk in a direction, between 2 availables :</p>
+
+<p><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Walk"</span><span class="p">,</span>
+    <span class="nt">"data"</span><span class="p">:</span> <span class="p">{</span>
+         <span class="nt">"direction"</span><span class="p">:</span> <span class="s2">"Right|Left"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</p>
+
+<h3><a href="#player-movements-turn"><i class=icon-anchor></i></a><a name=player-movements-turn>Face directions</a></h3>
+
+<p>Make the character turn in a direction between 2 availables :</p>
+
+<p><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Turn"</span><span class="p">,</span>
+    <span class="nt">"data"</span><span class="p">:</span> <span class="p">{</span>
+         <span class="nt">"direction"</span><span class="p">:</span> <span class="s2">"Right|Left"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</p>
+
+<h2><a href="#player-action"><i class=icon-anchor></i></a><a name=player-action>Player action</a></h2>
+
+<h3><a href="#player-action-look"><i class=icon-anchor></i></a><a name=player-action-look>Look</a></h3>
+
+<p>Make the character look at the current character position :</p>
+
+<p><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Look"</span>
+<span class="p">}</span>
+</pre></div>
+</p>
+
+<h3><a href="#player-action-read"><i class=icon-anchor></i></a><a name=player-action-read>Read</a></h3>
+
+<p>Make the character read an item :</p>
+
+<p><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Read"</span><span class="p">,</span>
+    <span class="nt">"data"</span><span class="p">:</span> <span class="p">{</span>
+         <span class="nt">"item"</span><span class="p">:</span> <span class="s2">"itemName"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</p>
+
+<h3><a href="#player-action-take"><i class=icon-anchor></i></a><a name=player-action-take>Take</a></h3>
+
+<p>Make the character take an item :</p>
+
+<p><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Take"</span><span class="p">,</span>
+    <span class="nt">"data"</span><span class="p">:</span> <span class="p">{</span>
+         <span class="nt">"item"</span><span class="p">:</span> <span class="s2">"itemName"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</p>
+
+<h3><a href="#player-action-drop"><i class=icon-anchor></i></a><a name=player-action-drop>Drop</a></h3>
+
+<p>Make the character drop an item :</p>
+
+<p><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Drop"</span><span class="p">,</span>
+    <span class="nt">"data"</span><span class="p">:</span> <span class="p">{</span>
+         <span class="nt">"item"</span><span class="p">:</span> <span class="s2">"itemName"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</p>
+
+<h1><a href="#levelling"><i class=icon-anchor></i></a><a name=levelling>Levelling</a></h1>
+
+<h2><a href="#levelling-attributes"><i class=icon-anchor></i></a><a name=levelling-attributes>Attributes</a></h2>
+
+<p>The characters attributes will be working in a fashion similar to <a href="https://en.wikipedia.org/wiki/Dungeons_%26_Dragons">D&D</a>, it will help the characters chances to perform certain actions as well as increase passive bonuses. 
+The game will not have a typical system for levelling, instead attributes will be increased temporarily depending on what the player has been doing lately.
+That way, it's all based on what the player does and how much it has been done, and if the player would be inactive for a while or just not use certain skills, the attributes will slowly change back again.</p>
+
+<p>Initial value is 10, minimum value is <code>1</code> and maximum value is <code>99</code>.</p>
+
+<h3><a href="#levelling-attributes-view"><i class=icon-anchor></i></a><a name=levelling-attributes-view>Attributes View</a></h3>
+
+<h2><a href="#levelling-phobias"><i class=icon-anchor></i></a><a name=levelling-phobias>Phobias</a></h2>
+
+<p>The characters phobias is a lot like attributes, but works in a negative fashion. For example, a high level of rhabdophobia will increase the character's chance to be influenced by magic or panic in the precense of magic. A high level thanatophobia might cause the player to panic in battle when wounded.</p>
+
+<p>Initial value is 5, minimum value is <code>1</code> and maximum value is <code>9</code>.</p>
+
+<h3><a href="#levelling-phobias-view"><i class=icon-anchor></i></a><a name=levelling-phobias-view>Phobias View</a></h3>
+
+<h1><a href="#inventory"><i class=icon-anchor></i></a><a name=inventory>Inventory</a></h1>
+
+<h2><a href="#inventory-action"><i class=icon-anchor></i></a><a name=inventory-action>Action</a></h2>
+
+<h2><a href="#inventory-action-list"><i class=icon-anchor></i></a><a name=inventory-action-list>List</a></h2>
+
+<p><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"ListInventory"</span>
+<span class="p">}</span>
+</pre></div>
+</p>
+
+<h2><a href="#inventory-action-use"><i class=icon-anchor></i></a><a name=inventory-action-use>Use</a></h2>
+
+<h1><a href="#quest"><i class=icon-anchor></i></a><a name="quest">Quest</a></h1>
+
+<h2><a href="#quest-board"><i class=icon-anchor></i></a><a name=quest-board>Quest board</a></h2>
+
+<h2><a href="#quest-journal"><i class=icon-anchor></i></a><a name=quest-journal>Quest journal</a></h2>
+
+<h1><a href="#items"><i class=icon-anchor></i></a><a name=items>Items</a></h1>
+
+<h2><a href="#items-status"><i class=icon-anchor></i></a><a name=items-status>Item status</a></h2>
+
+<h3><a href="#items-is-carryable"><i class=icon-anchor></i></a><a name=items-is-carryable>Is carryable</a></h3>
+</div></div></div>
+<script src="./static/js/main.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

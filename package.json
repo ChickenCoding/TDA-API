@@ -1,0 +1,38 @@
+{
+	"name": "TheDevelopAdventureSinglePage",
+	"version": "0.0.1",
+	"description": "single page of The Developer Adventure API",
+	"main": "index.js",
+	"scripts": {
+		"test": "mocha",
+		"kss": "kss-node ./src/sass -c ./src/css/singlepage.css styleguide --template src/kss-template",
+		"jsdoc": "./node_modules/jsdoc/jsdoc.js src/js/ index.js -d jsdoc",
+		"sass": "sass src/sass/singlepage/singlepage.sass:dist/singlepage/static/css/main.css src/sass/website/website.sass:dist/website/static/main.css"
+
+	},
+	"dependencies": {
+		"bluebird": "^2.3.11",
+		"entities": "^1.1.1",
+		"js-yaml": "^3.2.3",
+		"liquid-node": "^2.4.0",
+		"mout": "^0.11.0",
+		"pygmentize-bundled": "^2.3.0"
+	},
+	"devDependencies": {
+		"chai": "^1.10.0",
+		"grunt": "^0.4.5",
+		"grunt-contrib-copy": "^0.7.0",
+		"grunt-contrib-cssmin": "^0.10.0",
+		"grunt-contrib-uglify": "^0.6.0",
+		"grunt-newer": "^0.8.0",
+		"grunt-sass": "^0.16.1",
+		"grunt-zip": "^0.16.2",
+		"jsdoc": "^3.3.0-alpha10",
+		"load-grunt-config": "^0.16.0",
+		"load-grunt-tasks": "^1.0.0",
+		"mocha": "^2.0.1",
+		"time-grunt": "^1.0.0"
+	},
+	"author": "ChickenSkill",
+	"license": "Copyright The Developer Adventure 2014 - "
+}

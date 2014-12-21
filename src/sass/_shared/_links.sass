@@ -1,0 +1,48 @@
+// Links
+//
+//  Style for <a>, and link behavior classes.
+//
+//  Styleguide 3.0
+
+// Links Variables
+//
+//  Define variables of link.
+//
+//  $basecolorlink - General link color
+//  $headerColorLink - When a header is a link
+//
+//
+// No styleguide defined.
+$baseColorLink: #2388b9
+$headerColorLink: #1a1a1a
+
+// General Links
+//
+//  Stylize link by default.
+//
+//  :hover - Darken the link when hovering.
+//
+//  Markup: <a href="Text Url">Text Link</a>
+//
+//  Compatibility untested.
+//
+// Styleguide 3.0.1
+a
+  color: $baseColorLink
+  &:hover
+    color: darken($baseColorLink, 15)
+
+// Anchor Header Links
+//
+//  When a link is a header and an anchor, do not stylize it, as the anchor will be.
+//
+//  [name] - No highlight when it have name, that is header anchor.
+//
+//  Markup: <a href="#" name="TextName {$modifiers}">Text Header Link</a>
+//
+//  Compatibility untested.
+//
+// Styleguide 3.0.2
+a[name]
+  color: $headerColorLink
+

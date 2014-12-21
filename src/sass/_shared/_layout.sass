@@ -1,0 +1,51 @@
+// Header
+//
+//  Header Layout.
+//
+//  Markup:
+//  <header>Text Header</header>
+//
+//  Compatibility untested.
+//
+// Styleguide 7.0.1
+header
+  background-color: #eee
+  padding: 3rem 0
+
+// Code
+//
+//  Code Layout.
+//
+//  Markup:
+//  <blockquote>Text Blockquote </blockquote>
+//  <code>Text Code</code>
+//  <div class="highlightable"><code>Text Highlightable</code></div>
+//  <div class="highlight"><pre><code>Text Highlight</code></pre></div>
+//  <div class="highlight"><pre><code class="language-verilog">Text Languageverilog</code></pre></div>
+//
+//  Compatibility untested.
+//
+// Styleguide 7.0.2
+blockquote
+  border-left: 0.5rem solid lightblue
+  background: #eee
+  margin-left: 0
+  padding-left: 1rem
+  border-top-left-radius: 0.3rem
+  border-bottom-left-radius: 0.3rem
+blockquote:before,
+blockquote::before
+  color: #f7803c
+  margin-left: -3rem
+  margin-top: 1rem
+  padding: 0.5rem
+  background: lightblue
+  border-top-left-radius: 50%
+  border-bottom-left-radius: 50%
+code
+  padding-right: 2px
+  padding-left: 4px
+  border-radius: 3px
+  color: #565656
+
+@import "./pygments.css"
